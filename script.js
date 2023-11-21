@@ -99,5 +99,6 @@ if (16000000 < salary) {
 }
 
 console.log('««««« tax »»»»»', tax);
+
 // var elm = document.getElementById('root');
 // root.innerHTML = description;
