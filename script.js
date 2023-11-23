@@ -75,7 +75,7 @@ var c = true;
 // <= 16 thuế  = 5% n - 11
 // > 16 = 5% của 5tr  + 10%
 
-var salary = 10000000;
+var salary = 15000000;
 var tax;
 
 // if (salary <= 11000000) {
@@ -88,17 +88,13 @@ var tax;
 
 if (salary <= 11000000) {
   tax = 0;
-}
-
-if (salary <= 16000000) {
+} else if (salary <= 16000000) {
   tax = (salary - 11000000) * 0.05;
-} 
-
-if (16000000 < salary) {
+} else {
   tax = ((salary - 16000000) * 0.1) + 5000000 * 0.05 ;
 }
 
-console.log('««««« tax »»»»»', tax);
+console.log('««««« tax1 »»»»»', tax);
 
 // var elm = document.getElementById('root');
 // root.innerHTML = description;
