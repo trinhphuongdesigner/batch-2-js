@@ -1,0 +1,23 @@
+.button-c {
+  width: 330px;
+  padding: 20px 24px;
+  border-radius: 20px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+
+}
+
+.text {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 117.647% */
+  letter-spacing: 0.5px;
+}
