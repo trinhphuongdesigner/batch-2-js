@@ -7,3 +7,8 @@
   background: #EDF2F2;;
   color: #44566C;
 }
+
+.App {
+  margin: auto;
+  max-width: 1000px;
+}

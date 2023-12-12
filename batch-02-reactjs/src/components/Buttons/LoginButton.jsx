@@ -1,6 +1,6 @@
-import './button.css';
+import './LoginButton.css';
 
-function Button({ isLightMode, title, icon }) {
+function LoginButton({ isLightMode, title, icon }) {
   return (
     <button className={`button-c ${isLightMode ? 'btn-light' : ''}`}>
       <span className="icon">
@@ -12,4 +12,4 @@ function Button({ isLightMode, title, icon }) {
   );
 }
 
-export default Button;
+export default LoginButton;
