@@ -9,3 +9,5 @@ section 3:
   - Callback function
   - Rest parameter
   - Hook (không phải hooc)
+  - Anonymous func
+  - State

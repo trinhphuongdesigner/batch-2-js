@@ -33,6 +33,11 @@ function App() {
   const onChangeTab = (currentTab) => () => {
     setTab(currentTab);
   };
+  // const onChangeTab = (currentTab) => {
+  //   return (
+  //     () => setTab(currentTab)
+  //   )
+  // };
 
   const content = () => {
     let content =  '';
