@@ -11,7 +11,7 @@ function App() {
     <>
       <Tabs />
 
-      {/* <ButtonAccordions /> */}
+      <ButtonAccordions />
     </>
   );
 }

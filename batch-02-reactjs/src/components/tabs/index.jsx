@@ -42,12 +42,7 @@ function Tabs() {
       <div className='container'>
         <div className='wrapper d-flex justify-content-center'>
           {
-            tabData.map((item) => {
-              const { value, title } = item;
-              return (
-                <button className={`btn-tab ${tab.value === value ? 'active' : ''}`} onClick={onChangeTab(item)}>{title}</button>
-              )
-            })
+            tabData.map((item) => <button className={`btn-tab ${tab.value === item.value ? 'active' : ''}`} onClick={onChangeTab(item)}>{item.title}</button>)
           }
         </div>
 
