@@ -11,3 +11,5 @@ section 3:
   - Hook (không phải hooc)
   - Anonymous func
   - State
+
+section 4:

@@ -1,0 +1,36 @@
+.tab {
+  width: 455px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.tab__item {
+  margin-bottom: 10px;
+}
+
+.tab__item:last-child {
+  margin-bottom: 0;
+}
+
+.tab__title {
+  text-transform: uppercase;
+  color: #666666;
+  font-size: 12px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background: #d9d9d9;
+  font-weight: bold;
+}
+
+.tab__title--active {
+  background-color: #47b475;
+  color: white;
+}
+
+.tab__content {
+  border: 1px solid rgb(203, 203, 203);
+  padding: 16px 12px;
+  color: #666666;
+}

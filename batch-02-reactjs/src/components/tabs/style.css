@@ -1,0 +1,35 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 80%;
+}
+
+.btn-tab {
+  width: 150px;
+  height: 51px;
+  font-size: 12px;
+  color: hsl(0 0% 40%);
+  background: hsl(0 0% 93%);
+  text-transform: uppercase;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-tab:not(.active):hover {
+  background: hsl(0 0% 85%);
+}
+
+.active {
+  background: #47b475;
+  color: #fff;
+}
+
+p {
+  text-align: center;
+}
