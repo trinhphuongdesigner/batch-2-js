@@ -33,8 +33,6 @@ function OpenAtATime(props) {
         value={TAB.PENDING}
         activeTab={activeTab}
         onClick={onClickTab}
-        // isActive={activeTab === "PENDING"}
-        // onClick={() => onClickTab("PENDING")}
       />
 
       <TabItem
@@ -43,8 +41,6 @@ function OpenAtATime(props) {
         value={TAB.WAITING}
         activeTab={activeTab}
         onClick={onClickTab}
-        // isActive={activeTab === "WAITING"}
-        // onClick={() => onClickTab("WAITING")}
       />
 
     </div>
@@ -66,12 +62,3 @@ const TabItem = ({ title, content, value, activeTab, onClick }) => {
   </div>
   )
 }
-
-// function TabItem(props) {
-//   return (
-//     <div className="tab__item">
-//     <div className="tab__title tab__title--active">Simple 1</div>
-//     <div className="tab__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-//   </div>
-//   )
-// }
