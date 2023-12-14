@@ -32,6 +32,7 @@ const TabItem = ({ title, content }) => {
 
   const onToggle = () => {
     setIsActive((s) => !s);
+    // setIsActive(!isActive);
   };
 
   return (
