@@ -1,0 +1,65 @@
+.button {
+  width: 330px;
+  height: 60px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.button:hover {
+  scale: 1.01;
+}
+
+.button_primary {
+  border: 0;
+  background: black;
+}
+
+.button_secondary {
+  border: 2px solid rgba(0, 0, 0, 1);
+  background: white;
+}
+
+.icon {
+  width: 22px;
+  height: auto;
+  display: inline-block;
+}
+
+.icon_primary {
+  fill: white;
+}
+
+.icon_secondary {
+  fill: black;
+}
+
+.icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+.title {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.title_primary {
+  color: white;
+}
+
+.title_secondary {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.btnBlock > span:first-child {
+  margin-right: 20px;
+}
