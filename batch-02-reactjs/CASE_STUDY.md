@@ -33,3 +33,11 @@ state: => index hiện tại
 
 <img src={arr[state]} alt="" />
 thứ tự : state + 1
+
+section 5:
+  - React lifecycle,
+  - State,
+  - onChange event,
+  - Form (tìm hiểu trước)
+
+  Bài tập: Viết 1 ô input, nhập giá trị (số) vào ô input đó, bên cạnh có 1 button "Áp dụng", khi click "Áp dụng" thì số trong ô input sẽ được cập nhật vào giá trị setTimeOut để next image.

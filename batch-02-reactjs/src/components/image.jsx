@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonGroup from './buttonGroup/button';
 
 const imageList2 = [
@@ -26,9 +26,28 @@ function ImagePage(props) {
     index: 0,
     isRandom: true,
     isLooping: false,
+    isAuto: false,
+    nextImageAfter: 1,
   });
+  const [count, setCount] = useState(0);  // state.index
 
-  // state.index
+  // useEffect(() => { // Luôn chạy khi component render
+  //   console.log('««««« Chạy mỗi khi render »»»»»');
+  // })
+
+  // useEffect(() => {
+  //   console.log('««««« Chạy lần đầu tiên render = component­Did­Mount »»»»»');
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log('««««« Chạy khi state.index thay đổi »»»»»');
+  // }, [state.index])
+
+  // useEffect(() => { // Cleanup function
+  //   return () => {
+  //     console.log('««««« Chayj khi nao »»»»»');
+  //   }
+  // }, []);
 
   const [index, setIndex] = useState(0);
 
@@ -104,6 +123,32 @@ function ImagePage(props) {
     })
   }
 
+  const onChangeTime = (e) => {
+    setState((prev) => ({
+      ...prev,
+      nextImageAfter: e.target.value,
+    }))
+  }
+
+  useEffect(() => {
+    if (state.isAuto) {
+      setTimeout(() => {
+        onRandom()
+      }, state.nextImageAfter * 1000)
+    }
+  }, [state.isAuto, state.index])
+
+  const onChangeAuto = () => {
+    setState((prev) => {
+      return {
+        ...prev,
+        isAuto: !prev.isAuto,
+        isRandom: prev.isAuto ? prev.isRandom : false,
+        isLooping: prev.isAuto ? prev.isLooping : false,
+      }
+    })
+  }
+
   return (
     <div className="d-flex flex-column align-items-center">
       <img
@@ -125,6 +170,7 @@ function ImagePage(props) {
       <div
         style={{
           display: 'flex',
+          flexDirection: 'column',
         }}
       >
         <ButtonGroup
@@ -171,6 +217,18 @@ function ImagePage(props) {
           iconClass="icon_secondary"
           titleClass="title_secondary"
           onClick={onChangeRandom}
+        />
+
+        <input type="number" min={1} onChange={onChangeTime} />
+
+        <ButtonGroup
+          icon={<i className="fa-solid fa-chevron-right fa-xl" />}
+          title={`Auto ${state.isAuto ? 'on' : 'off'}`}
+          isRevert
+          buttonClass="button_secondary"
+          iconClass="icon_secondary"
+          titleClass="title_secondary"
+          onClick={onChangeAuto}
         />
       </div>
     </div>
