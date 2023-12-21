@@ -8,7 +8,11 @@ function FormBasic(props) {
     lastName: '',
     age: 1,
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    age: [],
+    firstName: [],
+    lastName: [],
+  });
 
   // const onChangeUser = (fieldName, e) => { // style 1
   //   setUser((prevState) => ({
@@ -17,39 +21,80 @@ function FormBasic(props) {
   //   }));
   // }
 
-  const onChangeUser = (e) => { // style 2
+  const onChangeUser = (e) => {
+    // style 2
     const { name, value } = e.target;
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-  }
+  };
 
   const onSubmitData = (e) => {
     e.preventDefault();
+    let err = {
+      age: [],
+      firstName: [],
+      lastName: [],
+    };
+
     const { age, firstName, lastName } = user;
-    if (age < 18) {
-      setErrors((prevState) => ({
-        ...prevState, // Giữ những lỗi khác
-        age: [
-          ...prevState.age, // Giữ lỗi về tuổi trước đó
-          'Bạn phải trên 18 tuổi',
-        ] 
-      }));
+
+    if (!age) {
+      err = {
+        ...err,
+        age: [...err.age, 'Vui lòng nhập tuổi của bạn'],
+      };
+    }
+
+    if (age && age < 18) {
+      err = {
+        ...err,
+        age: [...err.age, 'Bạn phải trên 18 tuổi'],
+      };
     }
 
     if (!firstName) {
-      alert(`Sorry, Vui lòng điền họ`);
-      return;
+      err = {
+        ...err,
+        firstName: [...err.firstName, 'Vui lòng nhập họ'],
+      };
+    }
+
+    if (firstName && firstName.length > 10) {
+      err = {
+        ...err,
+        firstName: [...err.firstName, 'Họ không được vượt quá 10 ký tự'],
+      };
     }
 
     if (!lastName) {
-      alert(`Sorry, Vui lòng điền tên`);
+      err = {
+        ...err,
+        lastName: [...err.lastName, 'Vui lòng nhập tên'],
+      };
+    }
+
+    if (lastName && lastName.length > 10) {
+      err = {
+        ...err,
+        lastName: [...err.lastName, 'Tên không được vượt quá 10 ký tự'],
+      };
+    }
+
+    if (
+      err.age.length > 0 ||
+      err.firstName.length > 0 ||
+      err.lastName.length > 0
+    ) {
+      setErrors(err);
       return;
     }
 
-    console.log('««««« Form được gửi thành công với các thông tin sau: »»»»»');
-    console.log('««««« user: »»»»»', user);
+    console.log(
+      '««««« Form được gửi thành công với các thông tin sau: »»»»»',
+      user,
+    );
   };
 
   return (
@@ -64,6 +109,13 @@ function FormBasic(props) {
           // onChange={(e) => onChangeUser('firstName', e)} // style 1
           onChange={onChangeUser} // style 2
         />
+        {errors.firstName.length > 0 && (
+          <ol>
+            {errors.firstName.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ol>
+        )}
       </div>
 
       <div>
