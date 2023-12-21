@@ -41,3 +41,7 @@ section 5:
   - Form (tìm hiểu trước)
 
   Bài tập: Viết 1 ô input, nhập giá trị (số) vào ô input đó, bên cạnh có 1 button "Áp dụng", khi click "Áp dụng" thì số trong ô input sẽ được cập nhật vào giá trị setTimeOut để next image.
+
+section 6: 
+  - Form
+  - Validation
