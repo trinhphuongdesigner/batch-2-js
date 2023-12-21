@@ -21,15 +21,18 @@ const imageList = [
   'https://plus.unsplash.com/premium_photo-1675756583711-ce312872227b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
 ];
 
+const DEFAULT_AUTO_TIME = 1;
+
 function ImagePage(props) {
   const [state, setState] = useState({
     index: 0,
     isRandom: true,
     isLooping: false,
     isAuto: false,
-    nextImageAfter: 1,
+    nextImageAfter: DEFAULT_AUTO_TIME,
   });
-  const [count, setCount] = useState(0);  // state.index
+
+  const [count, setCount] = useState(DEFAULT_AUTO_TIME);  // state.index
 
   // useEffect(() => { // Luôn chạy khi component render
   //   console.log('««««« Chạy mỗi khi render »»»»»');
@@ -124,11 +127,19 @@ function ImagePage(props) {
   }
 
   const onChangeTime = (e) => {
+    setCount(e.target.value);
+  }
+
+  const onApplyTimeout = () => {
     setState((prev) => ({
       ...prev,
-      nextImageAfter: e.target.value,
+      nextImageAfter: count,
     }))
+
+    setCount(0);
   }
+
+  console.log('««««« count »»»»»', count);
 
   useEffect(() => {
     if (state.isAuto) {
@@ -219,8 +230,16 @@ function ImagePage(props) {
           onClick={onChangeRandom}
         />
 
-        <input type="number" min={1} onChange={onChangeTime} />
+        <input type="number" value={count} style={{ height: '50px', borderRadius: '10px' }} min={1} onChange={onChangeTime} />
 
+        <ButtonGroup
+          icon={<i className="fa-solid fa-chevron-right fa-xl" />}
+          title="Apply"
+          buttonClass="button_secondary"
+          iconClass="icon_secondary"
+          titleClass="title_secondary"
+          onClick={onApplyTimeout}
+        />
         <ButtonGroup
           icon={<i className="fa-solid fa-chevron-right fa-xl" />}
           title={`Auto ${state.isAuto ? 'on' : 'off'}`}
