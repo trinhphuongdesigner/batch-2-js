@@ -46,3 +46,4 @@ section 6:
   - Form
   - Validation
   - git stash
+  - Yup & formik or react-hook-form
