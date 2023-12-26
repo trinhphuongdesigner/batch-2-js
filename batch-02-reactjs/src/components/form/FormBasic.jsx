@@ -24,6 +24,11 @@ function FormBasic(props) {
   const onChangeUser = (e) => {
     // style 2
     const { name, value } = e.target;
+    setErrors((prev) => ({
+      ...prev,
+      [name]: [],
+    }))
+
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
@@ -97,6 +102,39 @@ function FormBasic(props) {
     );
   };
 
+  const onBlurInput = (e) => {
+    let err = {
+      age: [],
+      firstName: [],
+      lastName: [],
+    };
+
+    if (e.target.name === 'firstName') {
+      if (!e.target.value) {
+        err = {
+          ...err,
+          firstName: [...err.firstName, 'Vui lòng nhập họ'],
+        };
+      }
+  
+      if (e.target.value && e.target.value.length > 10) {
+        err = {
+          ...err,
+          firstName: [...err.firstName, 'Họ không được vượt quá 10 ký tự'],
+        };
+      }
+  
+      if (
+        err.age.length > 0 ||
+        err.firstName.length > 0 ||
+        err.lastName.length > 0
+      ) {
+        setErrors(err);
+        return;
+      }
+    }
+  }
+
   return (
     <form className="container" onSubmit={onSubmitData}>
       <div>
@@ -104,10 +142,11 @@ function FormBasic(props) {
         <input
           id="firstName"
           type="text"
-          value={user.firstName}
           name="firstName"
           // onChange={(e) => onChangeUser('firstName', e)} // style 1
+          value={user.firstName}
           onChange={onChangeUser} // style 2
+          onBlur={onBlurInput}
         />
         {errors.firstName.length > 0 && (
           <ol>
@@ -128,6 +167,13 @@ function FormBasic(props) {
           // onChange={(e) => onChangeUser('lastName', e)}
           onChange={onChangeUser} // style 2
         />
+        {errors.lastName.length > 0 && (
+          <ol>
+            {errors.lastName.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ol>
+        )}
       </div>
 
       <div>
@@ -141,10 +187,25 @@ function FormBasic(props) {
           // onChange={(e) => onChangeUser('age', e)}
           onChange={onChangeUser} // style 2
         />
+        {errors.age.length > 0 && (
+          <ol>
+            {errors.age.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ol>
+        )}
       </div>
 
       {/* <button onClick={onSubmitData}>Khai báo</button> */}
-      <input type="submit" value="Khai báo"></input>
+      <input
+        type="submit"
+        value="Khai báo"
+        disabled={
+          errors.age.length > 0 ||
+          errors.firstName.length > 0 ||
+          errors.lastName.length > 0
+        }
+      ></input>
     </form>
   );
 }
