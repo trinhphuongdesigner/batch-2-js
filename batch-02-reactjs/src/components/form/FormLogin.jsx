@@ -17,6 +17,7 @@ const loginSchema = yup.object().shape({
     .max(10, (context) => {
       return `Nhập ${context.value} là bậy yo, tên dell gì dài thế`;
     }),
+
   lastName: yup
     .string()
     .required('Vui lòng nhập tên')
@@ -26,12 +27,23 @@ const loginSchema = yup.object().shape({
     .max(10, (context) => {
       return `Nhập ${context.value} là bậy yo, tên dell gì dài thế`;
     }),
+
   age: yup
     .number()
     .required('Không bỏ trống tuổi')
     .min(18, (content) => {
       return `Tuổi ${content.value} chưa đủ để sử dụng dịch vụ. phải 18+ mới được`
     }),
+
+    phoneNumber: yup
+    .string()
+    .required('Required')
+    .phoneNumber('Số điện thoại không hợp lệ'),
+
+    pass: yup
+    .string()
+    .required('Required')
+    .password('Password sai định dạng'),
 });
 
 function FormLogin(props) {
@@ -95,15 +107,27 @@ function FormLogin(props) {
         />
       </div>
 
-      {/* <div className="input-field">
+      <div className="input-field">
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phoneNumber"
+          placeholder="Số điện thoại"
+          autoComplete="off"
+          {...register('phoneNumber')}
+        />
+      </div>
+
+      <div className="input-field">
         <input
           type="password"
           name="pass"
           id="pass"
           placeholder="Password"
           autoComplete="off"
+          {...register('pass')}
         />
-      </div> */}
+      </div>
       <button type="submit" id="submit">
         LOGIN
       </button>
