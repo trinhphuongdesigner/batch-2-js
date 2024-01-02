@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import yup from '../../helper/yupGlobal';
+import InputValidation from '../InputValidation';
 
 import './FormLogin.css';
-
 
 const loginSchema = yup.object().shape({
   firstName: yup
@@ -31,43 +31,67 @@ const loginSchema = yup.object().shape({
   age: yup
     .number()
     .required('Không bỏ trống tuổi')
+    // .test('check_type', ' Kiểu dữ liệu sai', () => {
+
+    // })
     .min(18, (content) => {
-      return `Tuổi ${content.value} chưa đủ để sử dụng dịch vụ. phải 18+ mới được`
+      return `Tuổi ${content.value} chưa đủ để sử dụng dịch vụ. phải 18+ mới được`;
     }),
 
-    phoneNumber: yup
+  phoneNumber: yup
     .string()
     .required('Required')
     .phoneNumber('Số điện thoại không hợp lệ'),
 
-    pass: yup
-    .string()
-    .required('Required')
-    .password('Password sai định dạng'),
+  pass: yup.string().required('Required').password('Password sai định dạng'),
 });
+
+const GENDER = {
+  MALE: 'male',
+  FEMALE: 'female',
+  OTHER: 'other',
+}
+
+const GENDERS = [
+  '---',
+  GENDER.FEMALE,
+  GENDER.MALE,
+  GENDER.OTHER,
+]
 
 function FormLogin(props) {
   const {
     register,
     handleSubmit,
-    // watch,
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
-    resolver: yupResolver(loginSchema)
-});
-
-  console.log('««««« errors »»»»»', errors);
+    resolver: yupResolver(loginSchema),
+  });
 
   const onSubmit = (data) => {
     // Bạn có thể gọi API để cập nhật dữ liệu ở ngay đây
     console.log(data);
-};
+  };
+
+  const onChangeAge = (e) => {
+    if (e.target.value === '') {
+      setValue('age', 0);
+    } else {
+      // setValue('age', e.target.value);
+    }
+  };
+
+  const ageField = register('age', {
+    onChange: onChangeAge,
+  });
 
   return (
     <form className="box" onSubmit={handleSubmit(onSubmit)}>
       <h1>login</h1>
-      <div className="input-field">
+      {/* <div className="input-field">
         <input
           type="text"
           name="firstName"
@@ -81,9 +105,16 @@ function FormLogin(props) {
         {
           errors.firstName && <small className='text-danger'>{errors.firstName.message}</small>
         }
-      </div>
+      </div> */}
 
-      <div className="input-field">
+      <InputValidation
+        name="firstName"
+        placeholder="Họ"
+        register={register}
+        errors={errors}
+      />
+
+      {/* <div className="input-field">
         <input
           type="text"
           name="lastName"
@@ -93,7 +124,14 @@ function FormLogin(props) {
           {...register('lastName')}
           aria-invalid={errors.lastName ? "true" : "false"} 
         />
-      </div>
+      </div> */}
+
+      <InputValidation
+        name="lastName"
+        placeholder="Tên"
+        register={register}
+        errors={errors}
+      />
 
       <div className="input-field">
         <input
@@ -102,12 +140,25 @@ function FormLogin(props) {
           id="age"
           placeholder="Tuổi"
           autoComplete="off"
-          {...register('age')}
-          aria-invalid={errors.age ? "true" : "false"} 
+          {...register('age', {
+            onChange: onChangeAge,
+          })}
+          aria-invalid={errors.age ? 'true' : 'false'}
         />
+        {errors.age && (
+          <small className="text-danger">{errors.age.message}</small>
+        )}
       </div>
 
-      <div className="input-field">
+      {/* <InputValidation
+        type="number"
+        name="age"
+        placeholder="Tuổi"
+        register={ageField}
+        errors={errors}
+      /> */}
+
+      {/* <div className="input-field">
         <input
           type="text"
           name="phoneNumber"
@@ -116,9 +167,16 @@ function FormLogin(props) {
           autoComplete="off"
           {...register('phoneNumber')}
         />
-      </div>
+      </div> */}
 
-      <div className="input-field">
+      <InputValidation
+        name="phoneNumber"
+        placeholder="Số điện thoại"
+        register={register}
+        errors={errors}
+      />
+
+      {/* <div className="input-field">
         <input
           type="password"
           name="pass"
@@ -127,7 +185,27 @@ function FormLogin(props) {
           autoComplete="off"
           {...register('pass')}
         />
-      </div>
+      </div> */}
+
+      <InputValidation
+        type="password"
+        name="pass"
+        placeholder="Password"
+        register={register}
+        errors={errors}
+      />
+
+      <select {...register('gender')}>
+        {
+          console.log('««««« getValues »»»»»', )
+        }
+        {
+          GENDERS.map((g, index) => <option key={g} value={g} style={{
+            display: index === 0 && getValues('gender') !== undefined ? 'none' : 'block'
+          }} disabled={index === 0 && getValues('gender') !== undefined}>{g}</option>)
+        }
+      </select>
+
       <button type="submit" id="submit">
         LOGIN
       </button>
