@@ -53,10 +53,22 @@ const GENDER = {
 }
 
 const GENDERS = [
-  '---',
-  GENDER.FEMALE,
-  GENDER.MALE,
-  GENDER.OTHER,
+  {
+    value: '',
+    label: '-Vui lòng chọn-'
+  },
+  {
+    value: GENDER.FEMALE,
+    label: 'Nữ'
+  },
+  {
+    value: GENDER.MALE,
+    label: 'Nam'
+  },
+  {
+    value: GENDER.OTHER,
+    label: 'Khác'
+  },
 ]
 
 function FormLogin(props) {
@@ -197,12 +209,9 @@ function FormLogin(props) {
 
       <select {...register('gender')}>
         {
-          console.log('««««« getValues »»»»»', )
-        }
-        {
-          GENDERS.map((g, index) => <option key={g} value={g} style={{
-            display: index === 0 && getValues('gender') !== undefined ? 'none' : 'block'
-          }} disabled={index === 0 && getValues('gender') !== undefined}>{g}</option>)
+          GENDERS.map((g, index) => <option key={g.value} value={g.value} style={{
+            display: !g.value && getValues('gender') !== undefined ? 'none' : 'block'
+          }} disabled={!g.value && getValues('gender') !== undefined}>{g.label}</option>)
         }
       </select>
 
