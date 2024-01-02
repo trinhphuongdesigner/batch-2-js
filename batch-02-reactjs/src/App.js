@@ -8,10 +8,11 @@ import FormLogin from './components/form/FormLogin.jsx';
 
 import './App.css';
 import './style.css';
+import Post from './components/Post/index.jsx';
 
 function App() {
   return (
-    <>
+    <div className='container'>
       {/* <Tabs />
 
       <ButtonAccordions />
@@ -20,8 +21,10 @@ function App() {
 
       {/* <FormBasic /> */}
 
-      <FormLogin />
-    </>
+      {/* <FormLogin /> */}
+
+      <Post />
+    </div>
   );
 }
 
