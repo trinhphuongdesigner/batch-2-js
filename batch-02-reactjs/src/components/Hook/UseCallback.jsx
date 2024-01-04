@@ -1,25 +1,51 @@
 import React, { useState, useCallback } from 'react';
 
-const UseCallback = () => {
-  const [count, setCount] = useState(0);
+const storeSet = new Set(); 
 
-  // Sử dụng useCallback để tránh tạo ra hàm mới khi component render lại
-  const increment = useCallback(() => {
-    setCount(prevCount => prevCount + 1);
-  }, []); // Dependencies rỗng, hàm chỉ tạo một lần khi component được render lần đầu
+function UseCallback() {
+	const [count, setCount] = useState(0);
+	const [countOther, setCountOther] = useState(0);
+	const [countOther2, setCountOther2] = useState(0);
+	
+	// const increase = () => setCount(count + 1);
+	// const decrease = () => setCount(count - 1);
+	
+	// const increaseOther = () => setCountOther(countOther + 1);
+	// const decreaseOther = () => setCountOther(countOther + 1);
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
-};
+  const increase = useCallback((num) => () => setCount(count + num), [count]);
+  const decrease = useCallback(() => setCount(count - 1), [count]);
+    
+  const increaseOther = useCallback(() => setCountOther(countOther + 1), [countOther]);
+  const decreaseOther = useCallback(() => setCountOther(countOther + 1), [countOther]);
+    
+  const increaseOther2 = useCallback(() => setCountOther2(countOther2 + 1), [countOther2]);
+  const decreaseOther2 = useCallback(() => setCountOther2(countOther2 + 1), [countOther2]);
+
+  storeSet.add(increase());
+	storeSet.add(decrease);
+	storeSet.add(increaseOther);
+	storeSet.add(decreaseOther);
+	storeSet.add(increaseOther2);
+	storeSet.add(decreaseOther2);
+
+  console.log('««««« storeSet »»»»»', storeSet);
+	
+	return (
+			<>
+				<div>Count: {count}</div>
+				<button onClick={increase(2)}>+</button>
+				<button onClick={decrease}>-</button>
+
+				<div>Count other: {countOther}</div>
+				<button onClick={increaseOther}>+</button>
+				<button onClick={decreaseOther}>-</button>
+
+				<div>Count other: {countOther2}</div>
+				<button onClick={increaseOther2}>+</button>
+				<button onClick={decreaseOther2}>-</button>
+			</>
+	)
+}
 
 export default UseCallback;
-
-// - `useCallback` được sử dụng để bao bọc hàm `increment`. 
-// - `increment` chỉ được tạo ra một lần duy nhất khi component được render lần đầu tiên do dependencies được truyền vào là một mảng rỗng (`[]`). Nếu dependencies này thay đổi, `increment` sẽ được tạo lại.
-// - `increment` được truyền vào trong `onClick` của nút, nhưng không tạo ra một hàm mới mỗi khi component render lại. Điều này giúp tối ưu hóa hiệu suất, đặc biệt là trong các trường hợp hàm này được truyền xuống các components con và có thể gây ra việc render không cần thiết khi không sử dụng `useCallback`.
-
-// `useCallback` không phải lúc nào cũng cần thiết, và việc sử dụng nó phụ thuộc vào ngữ cảnh cụ thể của ứng dụng và việc tối ưu hóa hiệu suất. Nói chung, khi bạn có các hàm không thay đổi và được truyền xuống các components con, `useCallback` có thể hữu ích để tối ưu hóa việc render lại của React.

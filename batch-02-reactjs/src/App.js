@@ -6,7 +6,8 @@ import Tabs from './components/tabs/index.jsx';
 import FormBasic from './components/form/FormBasic.jsx';
 import FormLogin from './components/form/FormLogin.jsx';
 import Post from './components/Post/index.jsx';
-import UseMemo from './components/Hook/UseMemo.jsx';
+// import UseMemo from './components/Hook/UseMemo.jsx';
+import UseCallback from './components/Hook/UseCallback.jsx';
 
 import './App.css';
 import './style.css';
@@ -26,7 +27,9 @@ function App() {
 
       {/* <Post /> */}
 
-      <UseMemo />
+      {/* <UseMemo /> */}
+
+      <UseCallback />
     </div>
   );
 }
