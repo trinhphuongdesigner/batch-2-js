@@ -5,10 +5,11 @@ import ImagePage from './components/image.jsx';
 import Tabs from './components/tabs/index.jsx';
 import FormBasic from './components/form/FormBasic.jsx';
 import FormLogin from './components/form/FormLogin.jsx';
+import Post from './components/Post/index.jsx';
+import UseMemo from './components/Hook/UseMemo.jsx';
 
 import './App.css';
 import './style.css';
-import Post from './components/Post/index.jsx';
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
 
       {/* <FormLogin /> */}
 
-      <Post />
+      {/* <Post /> */}
+
+      <UseMemo />
     </div>
   );
 }

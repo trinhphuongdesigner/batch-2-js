@@ -47,3 +47,17 @@ section 6:
   - Validation
   - git stash
   - Yup & formik or react-hook-form
+
+section: 12:
+  - https://ant.design
+  - https://coreui.io/
+  - https://mui.com/
+
+  - Using the State Hook => tạo và quản lý trạng thái của 1 component
+  - Using the Effect Hook => quản lý vòng đời 1 component
+  - useMemo => catching biến (function có return, không nhận paramater đầu vào)
+  - useCallback =>  catching hàm (function có | không return, nhận paramater đầu vào)
+  - useRef
+  - Using the Context Hook
+  - useReducer
+  - useTransition

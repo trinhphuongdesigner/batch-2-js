@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axiosJsonPlaceholder from '../../libraries/axiosClient';
 // import axios from 'axios';
+
+import axiosJsonPlaceholder from '../../libraries/axiosClient';
 
 // const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
