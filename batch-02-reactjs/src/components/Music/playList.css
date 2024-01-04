@@ -1,0 +1,98 @@
+.music-space{
+  display: flex;
+  min-width: 1000px;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+.music-list {
+  flex-grow: 1;
+  margin-right: 20px;
+  z-index: 0;
+  font-family: 'Raleway';
+}
+
+.list-title {
+  font-size: 1.6rem;
+}
+
+.list-sub{
+  color: gray;
+  margin-bottom: 16px;
+}
+
+.play-list{
+
+}
+
+.play-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: white;
+  border-radius: 4px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* .play-item:nth-child(n - 1) {
+  margin-bottom: 8px;
+} */
+
+/* .play-item:first-child {
+  margin-top: 0;
+} */
+.play-item:last-child {
+  margin-bottom: 0;
+}
+
+.play-block {
+  display: flex;
+  align-items: center;
+}
+
+.index {
+  margin-right: 12px;
+}
+
+.thumbnail {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.play-icon{
+  margin-right: 12px;
+  color: gray;
+  opacity: .5;
+}
+
+.music-name{
+}
+
+.play-author{
+  color: gray;
+}
+
+.timer{
+  color: gray;
+}
+
+.liked{
+  color: rgb(253,29,29);
+  /* background: -webkit-linear-gradient(#eee, #333); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,99,69,1) 100%); */
+}
+.icon-like{
+
+}
+.music-playing {
+}
+
+.text-strong {
+  font-weight: bold;
+}

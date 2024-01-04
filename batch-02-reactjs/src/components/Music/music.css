@@ -1,0 +1,223 @@
+.musicSpace {
+  font-family: cursive;
+}
+.musicSpace * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.musicSpace body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #5f7a61;
+  font-family: 'roboto', sans-serif;
+}
+.musicSpace .music-player {
+  width: 350px;
+  height: 550px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 40px 100px rgba(215, 245, 186, 0.9);
+  padding: 30px;
+  overflow: hidden;
+  color: #d5eebb;
+  margin-bottom: 40px;
+}
+.musicSpace .music-name,
+.musicSpace .artist-name {
+  text-align: center;
+  text-transform: capitalize;
+}
+.musicSpace .music-name {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.musicSpace .artist-name {
+  font-size: 20px;
+}
+.musicSpace .disk {
+  position: relative;
+  display: block;
+  margin: 40px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  /* background-image: url('../../assets/image/music/1.jpg'); */
+  background-size: cover;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08);
+}
+.musicSpace .disk::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #5f7a61;
+}
+.musicSpace .song-slider {
+  width: 100%;
+  position: relative;
+}
+
+.musicSpace .current-time,
+.musicSpace .song-duration {
+  font-size: 14px;
+
+  color: black;
+
+}
+.musicSpace .song-duration {
+  position: absolute;
+  right: 0;
+}
+.musicSpace .controls {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+}
+.musicSpace .play-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #d5eebb;
+  cursor: pointer;
+  border: none;
+}
+.musicSpace .play-btn span {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 30px;
+  border-radius: 2px;
+  background: #5f7a61;
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.musicSpace .play-btn span:nth-child(2) {
+  left: 55%;
+  transform-origin: center;
+}
+.musicSpace .play-btn.pause span:nth-child(2) {
+  transform: translateY(-50%) scaleY(0);
+}
+.musicSpace .play-btn.pause span:nth-child(1) {
+  width: 35%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+}
+.musicSpace .play-btn.pause {
+  animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0;
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+  }
+}
+.musicSpace .btn {
+  width: 40px;
+  height: 40px;
+  background: #d5eebb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.musicSpace .disk {
+  animation: rotate 20s linear infinite;
+  animation-play-state: paused;
+}
+.musicSpace .disk.play {
+  animation-play-state: running;
+}
+
+.song-slider {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  border-radius: 10px;
+  background: #7fc8a9;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  cursor: pointer;
+  /* overflow: hidden; */
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 10px; /* Set a specific slider handle width */
+  height: 10px; /* Slider handle height */
+  border-radius: 50%;
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-webkit-slider-thumb:hover {
+  scale: 1.5;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.d-none {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+}
+
+button:focus {
+  outline: 0;
+}

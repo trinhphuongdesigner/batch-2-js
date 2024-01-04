@@ -6,8 +6,10 @@ import Tabs from './components/tabs/index.jsx';
 import FormBasic from './components/form/FormBasic.jsx';
 import FormLogin from './components/form/FormLogin.jsx';
 import Post from './components/Post/index.jsx';
-// import UseMemo from './components/Hook/UseMemo.jsx';
+import UseMemo from './components/Hook/UseMemo.jsx';
 import UseCallback from './components/Hook/UseCallback.jsx';
+import UseRef from './components/Hook/UseRef.jsx';
+import Music from './components/Music/index.jsx';
 
 import './App.css';
 import './style.css';
@@ -29,7 +31,11 @@ function App() {
 
       {/* <UseMemo /> */}
 
-      <UseCallback />
+      {/* <UseCallback /> */}
+
+      {/* <UseRef /> */}
+
+      <Music />
     </div>
   );
 }
