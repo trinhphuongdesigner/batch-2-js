@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
+import { LOCATION } from 'constants/index';
+
 import NotFound from 'Pages/notFound/index.jsx';
 import ButtonAccordions from 'Pages/ButtonAccordions/index.jsx';
+import Post from 'Pages/Post/index.jsx';
+import Music from 'Pages/Music/index.jsx';
+import ImagePage from 'Pages/Images/index.jsx';
+import Tabs from 'Pages/Tabs/index.jsx';
+import FormBasic from 'Pages/Form/FormBasic.jsx';
+import FormLogin from 'Pages/Form/FormLogin.jsx';
+import UseCallback from 'Pages/Hook/UseCallback.jsx';
+import UseMemo from 'Pages/Hook/UseMemo.jsx';
+import UseRef from 'Pages/Hook/UseRef.jsx';
 
-import ImagePage from 'components/image.jsx';
-import Tabs from 'components/tabs/index.jsx';
-import FormBasic from 'components/form/FormBasic.jsx';
-import FormLogin from 'components/form/FormLogin.jsx';
-import Post from 'components/Post/index.jsx';
-import UseMemo from 'components/Hook/UseMemo.jsx';
-import UseCallback from 'components/Hook/UseCallback.jsx';
-import UseRef from 'components/Hook/UseRef.jsx';
-import Music from 'components/Music/index.jsx';
 import Header from 'components/Header';
-import { LOCATION } from 'constants/index';
 
 import './App.css';
 import './style.css';

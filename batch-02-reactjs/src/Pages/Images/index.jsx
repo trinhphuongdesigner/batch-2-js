@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ButtonGroup from './buttonGroup/button';
+import ButtonGroup from '../../components/buttonGroup/button';
 
 const imageList2 = [
   {

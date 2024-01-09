@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import yup from '../../helper/yupGlobal';
-import InputValidation from '../InputValidation';
+import InputValidation from '../../components/InputValidation';
 
 import './FormLogin.css';
 
