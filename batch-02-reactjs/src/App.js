@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 import NotFound from 'Pages/notFound/index.jsx';
 import ButtonAccordions from 'Pages/ButtonAccordions/index.jsx';
@@ -13,21 +13,23 @@ import UseMemo from 'components/Hook/UseMemo.jsx';
 import UseCallback from 'components/Hook/UseCallback.jsx';
 import UseRef from 'components/Hook/UseRef.jsx';
 import Music from 'components/Music/index.jsx';
+import Header from 'components/Header';
+import { LOCATION } from 'constants/index';
 
 import './App.css';
 import './style.css';
 
 const routes = [
-  { path: '/', element: <Tabs /> },
-  { path: 'button-accordions', element: <ButtonAccordions /> },
-  { path: 'images', element: <ImagePage /> },
-  { path: 'form/basic', element: <FormBasic /> },
-  { path: 'form/login', element: <FormLogin /> },
-  { path: 'posts', element: <Post /> },
-  { path: 'use-callback', element: <UseCallback /> },
-  { path: 'use-ref', element: <UseRef /> },
-  { path: 'music', element: <Music /> },
-  { path: '*', element: <NotFound /> },
+  { path: LOCATION.TAB, element: <Tabs /> },
+  { path: LOCATION.BUTTON_ACCORDIONS, element: <ButtonAccordions /> },
+  { path: LOCATION.IMAGES, element: <ImagePage /> },
+  { path: LOCATION.FORM_BASIC, element: <FormBasic /> },
+  { path: LOCATION.FORM_LOGIN, element: <FormLogin /> },
+  { path: LOCATION.POSTS, element: <Post /> },
+  { path: LOCATION.USE_CALLBACK, element: <UseCallback /> },
+  { path: LOCATION.USE_REF, element: <UseRef /> },
+  { path: LOCATION.MUSIC, element: <Music /> },
+  { path: LOCATION.NOT_FOUND, element: <NotFound /> },
 ]
 
 function App() {
@@ -44,11 +46,16 @@ function App() {
       {/* <UseRef /> */}
       {/* <Music /> */}
 
-      <Routes>
-        {
-          routes.map((r, index) => <Route key={index} path={r.path} element={r.element} />)
-        }
-      </Routes>
+      {/* <BrowserRouter> */}
+
+      <Header/>
+      
+        <Routes>
+          {
+            routes.map((r, index) => <Route key={index} path={r.path} element={r.element} />)
+          }
+        </Routes>
+      {/* </BrowserRouter> */}
     </div>
   );
 }
