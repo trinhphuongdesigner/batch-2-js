@@ -61,3 +61,9 @@ section: 12:
   - Using the Context Hook
   - useReducer
   - useTransition
+
+section: 13:
+  - Cài đặt react-router-dom
+  - Config ở index.js
+  - Khai báo các đường dẫn (path) ở APP.js
+  - Tạo folder Pages và di chuyển các page tương ứng vào folder này
