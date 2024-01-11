@@ -67,3 +67,8 @@ section: 13:
   - Config ở index.js
   - Khai báo các đường dẫn (path) ở APP.js
   - Tạo folder Pages và di chuyển các page tương ứng vào folder này
+
+section: 14:
+  - Tạo file component (UI - giao diện)
+  - Khai báo trong Router
+  - Đăng kí trong danh sách đường dẫn (có thể có hoặc không)

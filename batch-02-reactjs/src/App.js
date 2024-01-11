@@ -6,6 +6,7 @@ import { LOCATION, USD } from 'constants/index';
 import NotFound from 'Pages/notFound/index.jsx';
 import ButtonAccordions from 'Pages/ButtonAccordions/index.jsx';
 import Post from 'Pages/Post/index.jsx';
+import PostDetail from 'Pages/Post/PostDetail';
 import Music from 'Pages/Music/index.jsx';
 import ImagePage from 'Pages/Images/index.jsx';
 import Tabs from 'Pages/Tabs/index.jsx';
@@ -27,6 +28,7 @@ const routes = [
   { path: LOCATION.FORM_BASIC, element: <FormBasic /> },
   { path: LOCATION.FORM_LOGIN, element: <FormLogin /> },
   { path: LOCATION.POSTS, element: <Post /> },
+  { path: LOCATION.POST_DETAIL, element: <PostDetail /> },
   { path: LOCATION.USE_CALLBACK, element: <UseCallback /> },
   { path: LOCATION.USE_REF, element: <UseRef /> },
   { path: LOCATION.MUSIC, element: <Music /> },
