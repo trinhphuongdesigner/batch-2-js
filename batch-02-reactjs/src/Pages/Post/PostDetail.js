@@ -31,6 +31,8 @@ function PostDetail(props) {
       </h1>
       <h3 className='m-3'>{post.title}</h3>
       <p className='m-3'>{post.body}</p>
+      <p>Tác giả: nhấn vào tên tác giả sẽ tới trang hiển thị chi tiết thông tin tác giả </p>
+      <p>email: </p>
     </div>
 
   );

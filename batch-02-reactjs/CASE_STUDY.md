@@ -72,3 +72,8 @@ section: 14:
   - Tạo file component (UI - giao diện)
   - Khai báo trong Router
   - Đăng kí trong danh sách đường dẫn (có thể có hoặc không)
+
+  Homework:
+  1. hiển thị thông tin người đằng bài post (tên, email)
+  2. click vào tên người đằng sẽ đi đến trang chi tiết người đăng.
+  https://jsonplaceholder.typicode.com/users/3
