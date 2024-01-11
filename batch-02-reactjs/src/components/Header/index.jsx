@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { LOCATION, locations } from 'constants/index';
+import { LOCATION, locations, USD } from 'constants/index';
 
 function Header(props) {
-  const location = useLocation();
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,12 +24,12 @@ function Header(props) {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             {
-              locations.map((l) => {
-                if (!l.isHidden) {
+              locations.map((location) => {
+                if (!location.isHidden) {
                   return (
-                    <li key={l.path} className={`nav-item ${location.pathname === l.path ? 'active' : ''}`}>
-                    <Link className="nav-link" to={l.path}>
-                      {l.name}
+                    <li key={location.path} className={`nav-item ${location.pathname === location.path ? 'active' : ''}`}>
+                    <Link className="nav-link" to={location.path}>
+                      {location.name}
                     </Link>
                   </li>
                   )

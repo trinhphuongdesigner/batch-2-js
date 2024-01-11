@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
-import { LOCATION } from 'constants/index';
+import { LOCATION, USD } from 'constants/index';
 
 import NotFound from 'Pages/notFound/index.jsx';
 import ButtonAccordions from 'Pages/ButtonAccordions/index.jsx';
@@ -34,6 +34,8 @@ const routes = [
 ]
 
 function App() {
+  const [isLogin, setIsLogin] = useState(true);
+
   return (
     <div className='container'>
       {/* <Tabs /> */}
@@ -50,12 +52,16 @@ function App() {
       {/* <BrowserRouter> */}
 
       <Header/>
-      
-        <Routes>
-          {
-            routes.map((r, index) => <Route key={index} path={r.path} element={r.element} />)
-          }
-        </Routes>
+
+      {
+        !isLogin && <Navigate to={LOCATION.FORM_LOGIN} replace={true} />
+      }
+
+      <Routes>
+        {
+          routes.map((r, index) => <Route key={index} path={r.path} element={r.element} />)
+        }
+      </Routes>
       {/* </BrowserRouter> */}
     </div>
   );

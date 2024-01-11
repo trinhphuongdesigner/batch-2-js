@@ -1,7 +1,7 @@
 export const LOCATION = {
   TAB: '/',
   BUTTON_ACCORDIONS: '/button-accordions',
-  IMAGES: '/images',
+  IMAGES: '/hinh-anh-hay',
   FORM_BASIC: '/form/basic',
   FORM_LOGIN: '/form/login',
   POSTS: '/posts',
@@ -54,3 +54,5 @@ export const locations = [
     isHidden: true,
   },
 ]
+
+export const USD = 24500;
