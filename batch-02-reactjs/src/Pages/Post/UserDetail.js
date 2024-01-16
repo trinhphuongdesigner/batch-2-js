@@ -10,7 +10,7 @@ function UserDetail(props) {
   const getAuthor = async() => {
     try {
       const response = await axiosJsonPlaceholder.get(
-        `/users/${params.id}`,
+        `/users/${params.userId}`,
       );
       setAuthor(response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ function UserDetail(props) {
       <p>Tác giả: {author.name || ''}</p>
       <p>Liên hệ: {author.phone || ''}</p>
       <p>Tài khoản: {author.username || ''}</p>
-      <p>Nơi làm việc: {author.company && author.company.name}</p>
+      <p className='comments'>Nơi làm việc: {author.company && author.company.name}</p>
       <p>Địa chỉ: {author.address && author.address.street} - {author.address && author.address.city}</p>
     </div>
 

@@ -13,7 +13,7 @@ function PostDetail(props) {
     try {
       const response = await axiosJsonPlaceholder.get(
         // '/posts/18'
-        `/posts/${params.id}`,
+        `/posts/${params.postId}`,
       );
       setPost(response.data);
     } catch (error) {
@@ -43,7 +43,7 @@ function PostDetail(props) {
   }, [post.userId]);
 
   return (
-    <div className='text-black'>
+    <div className='text-black postDetail'>
       <h1 className='m-3 text-black'>
         Component post detail
       </h1>

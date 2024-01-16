@@ -77,3 +77,9 @@ section: 14:
   1. hiển thị thông tin người đằng bài post (tên, email)
   2. click vào tên người đằng sẽ đi đến trang chi tiết người đăng.
   https://jsonplaceholder.typicode.com/users/3
+
+section 15:
+  - React lifecycle
+  Homework:
+  - URL get comment of post: https://jsonplaceholder.typicode.com/posts/1/
+  trong đó 1: id của bài viết (postId)
