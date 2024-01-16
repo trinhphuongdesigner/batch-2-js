@@ -5,7 +5,9 @@ export const LOCATION = {
   FORM_BASIC: '/form/basic',
   FORM_LOGIN: '/form/login',
   POSTS: '/bai-viet',
+  USERS: '/tac-gia',
   POST_DETAIL: '/bai-viet/:id',
+  USER_DETAIL: '/tac-gia/:id',
   USE_CALLBACK: '/use-callback',
   USE_REF: '/use-ref',
   MUSIC: '/music',
@@ -40,6 +42,10 @@ export const locations = [
   {
     path: LOCATION.POST_DETAIL,
     name: 'Posts detail',
+  },
+  {
+    path: LOCATION.USER_DETAIL,
+    name: 'User detail',
   },
   {
     path: LOCATION.USE_CALLBACK,

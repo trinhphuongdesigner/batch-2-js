@@ -20,6 +20,7 @@ import Header from 'components/Header';
 
 import './App.css';
 import './style.css';
+import UserDetail from 'Pages/Post/UserDetail';
 
 const routes = [
   { path: LOCATION.TAB, element: <Tabs /> },
@@ -29,6 +30,7 @@ const routes = [
   { path: LOCATION.FORM_LOGIN, element: <FormLogin /> },
   { path: LOCATION.POSTS, element: <Post /> },
   { path: LOCATION.POST_DETAIL, element: <PostDetail /> },
+  { path: LOCATION.USER_DETAIL, element: <UserDetail /> },
   { path: LOCATION.USE_CALLBACK, element: <UseCallback /> },
   { path: LOCATION.USE_REF, element: <UseRef /> },
   { path: LOCATION.MUSIC, element: <Music /> },
