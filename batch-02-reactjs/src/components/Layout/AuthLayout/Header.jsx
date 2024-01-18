@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { LOCATION, locations, USD } from 'constants/index';
 
-function Header(props) {
+function AuthHeader(props) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -75,4 +75,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default AuthHeader;

@@ -16,11 +16,13 @@ import UseCallback from 'Pages/Hook/UseCallback.jsx';
 import UseMemo from 'Pages/Hook/UseMemo.jsx';
 import UseRef from 'Pages/Hook/UseRef.jsx';
 
-import Header from 'components/Layout/Header';
+import Header from 'components/Layout/AuthLayout/Header';
 
 import './App.css';
 import './style.css';
 import UserDetail from 'Pages/Post/UserDetail';
+import AuthLayout from 'components/Layout/AuthLayout';
+import NonAuthLayout from 'components/Layout/NonAuthLayout';
 
 const routes = [
   { path: LOCATION.TAB, element: <Tabs /> },
@@ -34,7 +36,6 @@ const routes = [
   { path: LOCATION.USE_CALLBACK, element: <UseCallback /> },
   { path: LOCATION.USE_REF, element: <UseRef /> },
   { path: LOCATION.MUSIC, element: <Music /> },
-  { path: LOCATION.NOT_FOUND, element: <NotFound /> },
 ]
 
 function App() {
@@ -55,7 +56,7 @@ function App() {
 
       {/* <BrowserRouter> */}
 
-      <Header/>
+      {/* <Header/> */}
 
       {
         !isLogin && <Navigate to={LOCATION.FORM_LOGIN} replace={true} />
@@ -63,7 +64,41 @@ function App() {
 
       <Routes>
         {
-          routes.map((r, index) => <Route key={index} path={r.path} element={r.element} />)
+          routes.map((r, index) => {
+            return (
+              <>
+                <Route
+                  key={index}
+                  path={r.path}
+                  element={
+                    <AuthLayout>
+                      {r.element}
+                    </AuthLayout>
+                  }
+                />
+                <Route
+                  key="login"
+                  path={'/login'}
+                  element={
+                    <NonAuthLayout>
+                      <h1>Hello</h1>
+                    </NonAuthLayout>
+                  }
+                />
+                <Route
+                  key="not-found"
+                  path={LOCATION.NOT_FOUND}
+                  element={
+                    <NonAuthLayout>
+                      <NotFound />
+                    </NonAuthLayout>
+                  }
+                />
+
+              </>
+
+            )
+          })
         }
       </Routes>
       {/* </BrowserRouter> */}

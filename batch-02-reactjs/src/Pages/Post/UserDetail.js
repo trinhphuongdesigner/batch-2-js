@@ -56,7 +56,7 @@ function UserDetail(props) {
         maxInitial={3}
         name={author.name || ''}
         renderHTML={<>
-          <h6>{author.email || ''}</h6>
+          <p>{author.email || ''}</p>
           <small>{author.phone || ''}</small>
           <h5>{author.name || ''}</h5>
         </>}
