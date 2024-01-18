@@ -16,7 +16,7 @@ import UseCallback from 'Pages/Hook/UseCallback.jsx';
 import UseMemo from 'Pages/Hook/UseMemo.jsx';
 import UseRef from 'Pages/Hook/UseRef.jsx';
 
-import Header from 'components/Header';
+import Header from 'components/Layout/Header';
 
 import './App.css';
 import './style.css';
