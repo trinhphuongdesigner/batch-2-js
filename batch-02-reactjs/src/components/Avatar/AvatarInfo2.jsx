@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Children, useEffect } from 'react';
 import './style.scss';
 
-function Avt({
+function AvatarInfo2({
   src,
   name,
   maxInitial = 999,
-  email,
-  phone,
-  isPhoneFirst = true,
+  renderHTML,
 }) {
   const nameTitle = () => {
     const nameArr = name.split(' ');
@@ -30,23 +28,10 @@ function Avt({
       </div>
 
       <div className="info">
-        <h5>{name}</h5>
-        {isPhoneFirst ? (
-          <>
-            <small>{phone}</small>
-            <h6>{email}</h6>
-          </>
-        ) : (
-          <>
-            <h6>{email}</h6>
-            <small>{phone}</small>
-          </>
-        )}
-        {/* <h6>{email}</h6>
-        <small>{phone}</small> */}
+        {renderHTML}
       </div>
     </div>
   );
 }
 
-export default Avt;
+export default AvatarInfo2;
