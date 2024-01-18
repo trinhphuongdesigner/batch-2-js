@@ -20,8 +20,6 @@ function UserDetail(props) {
     }
   };
 
-  console.log('««««« author »»»»»', author);
-
   useEffect(() => {
     getAuthor();
   }, []);

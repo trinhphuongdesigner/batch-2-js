@@ -55,9 +55,6 @@ function PostDetail(props) {
       <p>Liên hệ: {author.phone}</p>
       <p>
         <span className='me-2'>Tài khoản:</span>
-        {
-          console.log('««««« author.userId »»»»»', author)
-        }
         <Link to={`${LOCATION.USERS}/${author.id}`} >{author.username}</Link>
         {/* <Link to={`${LOCATION.USERS}/${post.userId}`} >{author.username}</Link> */}
       </p>
