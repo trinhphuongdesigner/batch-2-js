@@ -11,6 +11,8 @@ export const LOCATION = {
   USE_CALLBACK: '/use-callback',
   USE_REF: '/use-ref',
   MUSIC: '/music',
+  COUNTER: '/counter',
+  TODO: '/todo',
   NOT_FOUND: '*',
 };
 
@@ -50,6 +52,14 @@ export const locations = [
   {
     path: LOCATION.MUSIC,
     name: 'Music',
+  },
+  {
+    path: LOCATION.COUNTER,
+    name: 'Counter',
+  },
+  {
+    path: LOCATION.TODO,
+    name: 'Todo',
   },
   {
     path: LOCATION.NOT_FOUND,

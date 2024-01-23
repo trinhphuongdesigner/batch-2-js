@@ -15,14 +15,16 @@ import FormLogin from 'Pages/Form/FormLogin.jsx';
 import UseCallback from 'Pages/Hook/UseCallback.jsx';
 import UseMemo from 'Pages/Hook/UseMemo.jsx';
 import UseRef from 'Pages/Hook/UseRef.jsx';
+import UserDetail from 'Pages/Post/UserDetail';
+import CounterApp from 'Pages/Counter';
+import TodoApp from 'Pages/ToDo';
 
 import Header from 'components/Layout/AuthLayout/Header';
+import AuthLayout from 'components/Layout/AuthLayout';
+import NonAuthLayout from 'components/Layout/NonAuthLayout';
 
 import './App.css';
 import './style.css';
-import UserDetail from 'Pages/Post/UserDetail';
-import AuthLayout from 'components/Layout/AuthLayout';
-import NonAuthLayout from 'components/Layout/NonAuthLayout';
 
 const routes = [
   { path: LOCATION.TAB, element: <Tabs /> },
@@ -36,6 +38,8 @@ const routes = [
   { path: LOCATION.USE_CALLBACK, element: <UseCallback /> },
   { path: LOCATION.USE_REF, element: <UseRef /> },
   { path: LOCATION.MUSIC, element: <Music /> },
+  { path: LOCATION.COUNTER, element: <CounterApp /> },
+  { path: LOCATION.TODO, element: <TodoApp /> },
 ]
 
 function App() {

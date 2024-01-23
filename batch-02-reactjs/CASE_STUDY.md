@@ -83,3 +83,18 @@ section 15:
   Homework:
   - URL get comment of post: https://jsonplaceholder.typicode.com/posts/1/
   trong đó 1: id của bài viết (postId)
+
+section 17:
+  - local state => global state
+  - zustand
+  - useContext
+  - redux => redux toolkit, redux thunk, redux saga
+  Store: Nơi lưu trữ toàn bộ trạng thái của ứng dụng. Nó chỉ có thể được cập nhật thông qua việc gửi actions.
+
+  Actions: Là các đối tượng chứa thông tin về sự kiện đã xảy ra trong ứng dụng. Các actions được gửi từ components để yêu cầu thay đổi trạng thái.
+
+  Reducers: Là các hàm xử lý actions và cập nhật trạng thái trong store. Mỗi reducer đại diện cho một phần của trạng thái của ứng dụng.
+
+  Dispatch: Là một phương thức để gửi actions đến store. Khi một action được dispatch, nó sẽ được chuyển đến reducer để xử lý và cập nhật trạng thái.
+
+  Middleware: Là các hàm có thể xử lý các actions trước khi chúng đến reducers. Middleware được sử dụng để thực hiện các chức năng như logging, gọi API, hoặc xử lý các actions bất đồng bộ.
