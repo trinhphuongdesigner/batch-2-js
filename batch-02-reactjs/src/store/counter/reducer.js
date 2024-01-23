@@ -1,5 +1,3 @@
-import * as ActionTypes from './actionTypes';
-
 // DEFAULT STATE
 const defaultState = {
   count: 0,
@@ -9,12 +7,12 @@ const defaultState = {
 
 const counterReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case ActionTypes.COUNTER_INCREASE_COUNT:
+    case 'TANG':
       // new
       const newCount = state.count + action.number;
       return { ...state, count: newCount };
 
-    case ActionTypes.COUNTER_DECREASE_COUNT:
+    case 'GIAM':
       // Old
       return Object.assign({}, state, {
         count: state.count - action.number,
