@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// import { useSelector } from 'react-redux'; 
 import ButtonGroup from '../../components/buttonGroup/button';
-import { useDispatch, useSelector } from 'react-redux';
-import { randomImageAction } from 'store/image/action';
 
 const imageList2 = [
   {
@@ -28,14 +27,13 @@ const DEFAULT_AUTO_TIME = 1;
 function ImagePage(props) {
   const [state, setState] = useState({
     index: 0,
+    isRandom: true,
     isLooping: false,
     isAuto: false,
     nextImageAfter: DEFAULT_AUTO_TIME,
   });
-  const isRandom = useSelector((state) => state.imageReducer.isRandom);
-  console.log('««««« isRandom »»»»»', isRandom);
+  // const isRandom = useSelector((state) => state.imageReducer.isRandom);
   const [count, setCount] = useState(DEFAULT_AUTO_TIME);  // state.index
-  const dispatch = useDispatch();
 
   // useEffect(() => { // Luôn chạy khi component render
   //   console.log('««««« Chạy mỗi khi render »»»»»');
@@ -66,19 +64,6 @@ function ImagePage(props) {
       index: Math.floor(Math.random() * 10),
     }))
   }
-
-  
-  const onChangeRandom = () => {
-    dispatch(randomImageAction())
-    // setState((prev) => {
-    //   return {
-    //     ...prev,
-    //     // isRandom: !prev.isRandom,
-    //     // isLooping: prev.isRandom ? prev.isLooping : false,
-    //   }
-    // })
-  }
-
 
   const onNextImage = () => {
     // setIndex(prevState => prevState + 1);
@@ -121,7 +106,7 @@ function ImagePage(props) {
     setState((prev) => ({
       ...prev,
       isLooping: !prev.isLooping,
-      // isRandom: !prev.isLooping ? false : prev.isRandom,
+      isRandom: !prev.isLooping ? false : prev.isRandom,
     }))
 
     // setState((prev) => {
@@ -131,6 +116,16 @@ function ImagePage(props) {
     //     isLooping: newLoop,
     //   }
     // })
+  }
+
+  const onChangeRandom = () => {
+    setState((prev) => {
+      return {
+        ...prev,
+        isRandom: !prev.isRandom,
+        isLooping: prev.isRandom ? prev.isLooping : false,
+      }
+    })
   }
 
   const onChangeTime = (e) => {
@@ -161,8 +156,8 @@ function ImagePage(props) {
       return {
         ...prev,
         isAuto: !prev.isAuto,
-        // isRandom: prev.isAuto ? prev.isRandom : false,
-        // isLooping: prev.isAuto ? prev.isLooping : false,
+        isRandom: prev.isAuto ? prev.isRandom : false,
+        isLooping: prev.isAuto ? prev.isLooping : false,
       }
     })
   }
@@ -212,7 +207,7 @@ function ImagePage(props) {
           buttonClass="button_secondary"
           iconClass="icon_secondary"
           titleClass="title_secondary"
-          onClick={isRandom ? onRandom : onNextImage}
+          onClick={state.isRandom ? onRandom : onNextImage}
           // disabled={state.index === imageList.length - 1}
           disabled={state.isLooping ? false : state.index === imageList.length - 1}
         />
@@ -229,7 +224,7 @@ function ImagePage(props) {
 
         <ButtonGroup
           icon={<i className="fa-solid fa-chevron-right fa-xl" />}
-          title={`Random ${isRandom ? 'on' : 'off'}`}
+          title={`Random ${state.isRandom ? 'on' : 'off'}`}
           isRevert
           buttonClass="button_secondary"
           iconClass="icon_secondary"

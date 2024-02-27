@@ -6,7 +6,7 @@ const defaultState = {
 
 // const [count, setCount] = React.useState(0)
 
-const counterReducer = (state = defaultState, action) => {
+const imageReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'TANG':
       // new
@@ -28,7 +28,7 @@ const counterReducer = (state = defaultState, action) => {
   }
 };
 
-export default counterReducer;
+export default imageReducer;
 
 // Notes:
 // Object.assign method

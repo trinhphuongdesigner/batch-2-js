@@ -12,7 +12,7 @@ export const decreaseCountAction = (number) => ({
 });
 
 // Action Creator
-export const randomImageAction = (number) => ({
+export const randomImageAction = () => ({
   type: 'RANDOM', // ACTION TYPE
 });
 
