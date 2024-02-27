@@ -141,8 +141,6 @@ function ImagePage(props) {
     setCount(0);
   }
 
-  console.log('««««« count »»»»»', count);
-
   useEffect(() => {
     if (state.isAuto) {
       setTimeout(() => {

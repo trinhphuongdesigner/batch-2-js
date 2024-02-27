@@ -16,5 +16,26 @@ export const randomImageAction = () => ({
   type: 'RANDOM', // ACTION TYPE
 });
 
+export const toggleLoopingImageAction = () => ({
+  type: 'LOOPING', // ACTION TYPE
+});
+
+export const onToggleAutoAction = () => ({
+  type: 'AUTO', // ACTION TYPE
+});
+
+export const onRandomAction = (number) => ({
+  type: 'ON_RANDOM', // ACTION TYPE
+  nextIndex: number,
+});
+
+export const onNextImageAction = (number) => ({
+  type: 'NEXT', // ACTION TYPE
+});
+
+export const onPrevImageAction = (number) => ({
+  type: 'PREV', // ACTION TYPE
+});
+
 
 // ------------------------------------------------------------

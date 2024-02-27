@@ -1,7 +1,7 @@
 // DEFAULT STATE
 const defaultState = {
   count: 0,
-  isRandom: false,
+  isRandom: false
 };
 
 // const [count, setCount] = React.useState(0)
