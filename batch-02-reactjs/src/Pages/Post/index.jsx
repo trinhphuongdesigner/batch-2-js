@@ -1,64 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
 
-import axiosJsonPlaceholder from 'libraries/axiosClient';
 import { LOCATION } from 'constants/index';
-
-// const BASE_URL = 'https://jsonplaceholder.typicode.com';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPostAction } from 'store/post/action';
 
 function Post(props) {
-  const [posts, setPosts] = useState([]);
-  // const [users, setUsers] = useState([]);
-
-  const getPosts = async () => {
-    try {
-      const response = await axiosJsonPlaceholder.get(
-        '/posts',
-      );
-      setPosts(response.data);
-    } catch (error) {
-      console.log('««««« error »»»»»', error);
-    }
-
-    // axios
-    //   .get('https://jsonplaceholder.typicode.com/posts')
-    //   .then(function (response) {
-    //     setPosts(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .finally(function () {
-    //   });
-  };
-
-  // const getUsers = async () => {
-  //   try {
-  //     const response = await axiosJsonPlaceholder.get(
-  //       '/users',
-  //     );
-  //     setUsers(response.data);
-  //   } catch (error) {
-  //     console.log('««««« error »»»»»', error);
-  //   }
-  // };
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.postReducer.posts);
 
   useEffect(() => {
-    // fetchPosts();
-    getPosts();
-    // getUsers();
+    // getPosts();
+    dispatch(getPostAction())
   }, []);
 
   return (
     <>
       <h1 className='m-3 text-black'>Post list</h1>
       <ol>
-        {posts.length > 0 && posts.map((p) => <li key={p.id}><Link to={`${LOCATION.POSTS}/${p.id}`}>{p.title}</Link></li>)}
+        {posts.length > 0 ? posts.map((p) => <li key={p.id}><Link to={`${LOCATION.POSTS}/${p.id}`}>{p.title}</Link></li>): "Không có bài viết"}
       </ol>
-      {/* <ol>
-        {users.length > 0 && users.map((u) => <li key={u.id}>{u.email}</li>)}
-      </ol> */}
     </>
   );
 }

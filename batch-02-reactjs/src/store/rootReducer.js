@@ -3,16 +3,14 @@ import { combineReducers } from 'redux';
 import counterReducer from './counter/reducer';
 import todoReducer from './todo/reducer';
 import imageReducer from './image/reducer';
-// import bankReducer from './BankApp/reducers';
-// import userReducer from './UsersApp/reducers';
+import postReducer from './post/reducer';
 
 // COMBINE MANY REDUCERS
 const rootReducer = combineReducers({
-  counterReducer, // Ngăn thực phẩm
+  counterReducer,
   todoReducer,
   imageReducer,
-  // bankReducer,
-  // userReducer, // Ngăn chứa vật phẩm khác
+  postReducer,
 });
 
 export default rootReducer;
