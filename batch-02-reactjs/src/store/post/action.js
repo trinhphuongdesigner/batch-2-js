@@ -11,3 +11,15 @@ export const getPostsFailedAction = () => ({
   type: ActionTypes.GET_POSTS_FAILED, // ACTION TYPE
 });
 
+export const getPostAction = ({ postId }) => ({
+  type: ActionTypes.GET_POST, // ACTION TYPE
+  postId,
+});
+export const getPostSuccessAction = (data) => ({
+  type: ActionTypes.GET_POST_SUCCESS, // ACTION TYPE
+  data,
+});
+export const getPostFailedAction = () => ({
+  type: ActionTypes.GET_POST_FAILED, // ACTION TYPE
+});
+

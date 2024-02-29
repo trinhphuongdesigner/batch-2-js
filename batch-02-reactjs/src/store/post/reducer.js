@@ -3,7 +3,9 @@ import * as ActionTypes from './actionTypes';
 
 const defaultState = {
   posts: [],
+  post: {},
   isLoadingPosts: false,
+  isLoadingPost: false,
 };
 
 const postReducer = (state = defaultState, action) => {
@@ -15,6 +17,13 @@ const postReducer = (state = defaultState, action) => {
     case ActionTypes.GET_POSTS_FAILED:
       return { ...state, isLoadingPosts: false, posts: [] };
       // return { ...state, isLoadingPosts: false };
+
+      case ActionTypes.GET_POST:
+        return { ...state, isLoadingPost: true };
+      case ActionTypes.GET_POST_SUCCESS:
+        return { ...state, isLoadingPost: false, post: action.data };
+      case ActionTypes.GET_POST_FAILED:
+        return { ...state, isLoadingPost: false, post: {} };
 
     default:
       return state;
