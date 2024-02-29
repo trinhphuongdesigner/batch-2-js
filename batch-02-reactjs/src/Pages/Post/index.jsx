@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOCATION } from 'constants/index';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostsAction } from 'store/post/action';
+import Loading from 'components/Loading';
 
 function Post(props) {
   const dispatch = useDispatch();
@@ -19,9 +20,10 @@ function Post(props) {
   return (
     <>
       <h1 className="m-3 text-black">Post list</h1>
+
       <ol>
         {isLoadingPosts
-          ? 'Đang tải...'
+          ? <Loading />
           : posts.length > 0
           ? posts.map((p) => (
               <li key={p.id}>
