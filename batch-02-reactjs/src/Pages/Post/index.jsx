@@ -3,22 +3,32 @@ import { Link } from 'react-router-dom';
 
 import { LOCATION } from 'constants/index';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPostAction } from 'store/post/action';
+import { getPostsAction } from 'store/post/action';
 
 function Post(props) {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postReducer.posts);
+  const isLoadingPosts = useSelector(
+    (state) => state.postReducer.isLoadingPosts,
+  );
 
   useEffect(() => {
-    // getPosts();
-    dispatch(getPostAction())
+    dispatch(getPostsAction());
   }, []);
 
   return (
     <>
-      <h1 className='m-3 text-black'>Post list</h1>
+      <h1 className="m-3 text-black">Post list</h1>
       <ol>
-        {posts.length > 0 ? posts.map((p) => <li key={p.id}><Link to={`${LOCATION.POSTS}/${p.id}`}>{p.title}</Link></li>): "Không có bài viết"}
+        {isLoadingPosts
+          ? 'Đang tải...'
+          : posts.length > 0
+          ? posts.map((p) => (
+              <li key={p.id}>
+                <Link to={`${LOCATION.POSTS}/${p.id}`}>{p.title}</Link>
+              </li>
+            ))
+          : 'Không có bài viết'}
       </ol>
     </>
   );

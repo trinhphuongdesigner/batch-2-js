@@ -1,19 +1,20 @@
 import { put, takeLeading } from 'redux-saga/effects';
-import { getProductsFailedAction, getProductsSuccessAction, updatePostAction } from './action';
+import { getPostsSuccessAction, getPostsFailedAction } from './action';
 import axiosJsonPlaceholder from 'libraries/axiosClient';
+import * as ActionTypes from './actionTypes';
 
 
 function* getPosts() {
   try {
     const response = yield axiosJsonPlaceholder.get('/posts');
 
-    yield put(updatePostAction(response.data));
+    yield put(getPostsSuccessAction(response.data));
   } catch (error) {
+    yield put(getPostsFailedAction());
     console.log('««««« error »»»»»', error);
-    // yield put(getProductsFailedAction());
   }
 }
 
 export default function* postSaga() {
-  yield takeLeading('GET_POSTS', getPosts);
+  yield takeLeading(ActionTypes.GET_POSTS, getPosts);
 };
