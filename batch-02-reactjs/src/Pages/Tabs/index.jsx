@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './style.css';
+import AppModalContainer from 'components/Modal';
 
 const tabData = [
   {
@@ -49,6 +50,8 @@ function Tabs() {
         <div className='wrapper'>
           <p>{tab.content}</p>
         </div>
+
+        <AppModalContainer />
       </div>
     </>
   );
